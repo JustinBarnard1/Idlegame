@@ -106,7 +106,7 @@ let helpers = [
 ]
 
 function drawPlayer() {
-    let template = `Player Name: ${player.name}`
+    let template = `${player.name}`
     playerElem.innerHTML = template
 }
 
@@ -170,7 +170,7 @@ function equipWeapon(weaponName) {
 }
 
 function drawMoney() {
-    let template = `<span>Money: ${money}</span>`
+    let template = `<span style="font-size: 28pt">Money: ${money}</span>`
     moneyElem.innerHTML = template
 }
 
