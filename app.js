@@ -1,16 +1,17 @@
 let weaponsElem = document.getElementById("weapon")
 let playerElem = document.getElementById("player")
 let helperElem = document.getElementById("helpers")
+let moneyElem = document.getElementById("money")
 
-let money = 0
+let money = 1
 
-let player = [
-    {
-        name: prompt("Enter Your Character Name."),
-        weapon: "fist",
-        damage: 1,
-    }
-]
+let player =
+{
+    name: prompt("Enter Your Character Name."),
+    weapon: "fist",
+    damage: 1,
+}
+
 
 let weapons = [
     {
@@ -65,7 +66,7 @@ let helpers = [
 ]
 
 function drawPlayer() {
-    let template = `${player.name}`
+    let template = `Player Name: ${player.name}`
     playerElem.innerHTML = template
 }
 
@@ -100,7 +101,9 @@ function getHelperTemplate(helper) {
 }
 
 function whackIt() {
-    money += weapon.damage
+    money += player.damage
+    console.log(money)
+    updateBoard()
 }
 
 function equipWeapon(weaponName) {
@@ -113,7 +116,8 @@ function equipWeapon(weaponName) {
 }
 
 function drawMoney() {
-    let template = `<span>Money: ${'money'}</span>`
+    let template = `<span>Money: ${money}</span>`
+    moneyElem.innerHTML = template
 }
 
 
