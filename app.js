@@ -6,10 +6,9 @@ let money = 0
 
 let player = [
     {
-        name: prompt("Choose Your Character Name!"),
-        weapon: "Fist",
+        name: prompt("Enter Your Character Name."),
+        weapon: "fist",
         damage: 1,
-        cost: 0,
     }
 ]
 
@@ -18,47 +17,55 @@ let weapons = [
         name: "Wooden Pick",
         damage: 5,
         cost: 50,
+        count: 0,
     },
     {
         name: "Broad Pick",
         damage: 15,
         cost: 250,
+        count: 0,
     },
     {
         name: "Mithril Pick",
         damage: 25,
         cost: 500,
+        count: 0,
     },
     {
         name: "Adamant Pick",
         damage: 40,
         cost: 1000,
+        count: 0,
     },
     {
         name: "Rune Pick",
         damage: 60,
         cost: 10000,
+        count: 0,
     },
     {
         name: "Magic Pick",
         damage: 85,
         cost: 100000,
+        count: 0,
     },
     {
         name: "Ultimate Pick",
-        damage: 1000000,
+        damage: 100,
+        cost: 1000000,
+        count: 0,
     }
 ]
 let helpers = [
     {
-        name: prompt("Name your helper!"),
+        name: "Goblin",
         damage: 50,
         cost: 500,
     }
 ]
 
 function drawPlayer() {
-    let template = `${player.name} ${player.weapon.name}`
+    let template = `${player.name}`
     playerElem.innerHTML = template
 }
 
@@ -106,7 +113,7 @@ function equipWeapon(weaponName) {
 }
 
 function drawMoney() {
-
+    let template = `<span>Money: ${'money'}</span>`
 }
 
 
@@ -119,6 +126,7 @@ function updateBoard() {
     drawWeapons()
     drawPlayer()
     drawHelper()
+    drawMoney()
 }
 
 updateBoard()
