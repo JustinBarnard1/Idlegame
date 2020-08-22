@@ -13,18 +13,37 @@
     <header class="container-fluid bg-primary text-light text-center">
         <h3>Game</h3>
     </header>
-    <main>
-        <div class="col-12 text-center">
-            <h3 style="font-size: 38pt" id="player"></h3>
+    <main class="background container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 style="font-size: 38pt" id="player"></h3>
+            </div>
         </div>
-        <div class="col-12 text-center"><span id="money"></span></div>
+        <div class="row">
+            <div class="col-12 text-center"><span id="money"></span></div>
+        </div>
         <div>
-            <button class="btn btn-primary" onclick="whackIt()">Whack Me</button>
+            <div class="row">
+                <div class="col-3">
+                    <div id="weapon"></div>
+                </div>
+                <div class="col-5">
+                </div>
+                <div class="col-4">
+                    <div id="helpers"></div>
+                </div>
+            </div>
         </div>
-        <div id="helpers"></div>
-        <div id="weapon"></div>
+        <div class="row">
+            <div class="col text-center">
+                <img class="imgMain" onclick="whackIt()" src="./coalMine.png" alt="Mine">
+            </div>
+        </div>
+
     </main>
-    <footer></footer>
+    <footer>
+        <h3 class="bg-primary text-light text-center">Made Here, Not There... Or There.</h3>
+    </footer>
 
 
 

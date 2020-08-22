@@ -105,6 +105,11 @@ let helpers = [
     }
 ]
 
+function drawMoney() {
+    let template = `<span style="font-size: 28pt"><img class ="imgMoney" src="./money.png" alt="Money: "> ${money}</span>`
+    moneyElem.innerHTML = template
+}
+
 function drawPlayer() {
     let template = `${player.name}`
     playerElem.innerHTML = template
@@ -153,6 +158,7 @@ function equipHelper(helperName) {
         return alert("You can't afford that.")
     }
     money -= helper.cost
+    helper.cost += Math.round(helper.cost * 0.2)
     helper.count += 1
     helpersDmg += helper.damage
     updateBoard()
@@ -164,15 +170,13 @@ function equipWeapon(weaponName) {
         return alert("You can't afford that.")
     }
     money -= weapon.cost
+    weapon.cost += Math.round(weapon.cost * 0.2)
     weapon.count += 1
     player.damage += weapon.damage
     updateBoard()
 }
 
-function drawMoney() {
-    let template = `<span style="font-size: 28pt">Money: ${money}</span>`
-    moneyElem.innerHTML = template
-}
+
 
 
 

@@ -1,4 +1,27 @@
 body { min-height: 100vh; display: flex; flex-direction: column; }
-header{ } 
+header{ 
+    height: 8vh;
+} 
 main{flex-grow: 1;} 
-footer{ }
+footer{ 
+    height: 8vh;
+}
+
+.imgMain{
+    height: 50vh;
+}
+
+.imgCards{
+    height: 15vh;
+}
+
+.imgMoney{
+    height: 5vh;
+}
+
+.background{
+    background-image: url(./background.png);
+    background-size: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
