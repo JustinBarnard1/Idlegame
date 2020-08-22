@@ -5,59 +5,45 @@ let moneyElem = document.getElementById("money")
 let nameElem = document.getElementById("chooseName").value
 let mineElem = document.getElementById("mineImg")
 
-let money = 500
+let money = 100000000000000000000000000
 
 let players = []
 
 
 let weapons = [
     {
-        name: "Hammer And Chisel",
+        name: "Chisel",
         damage: 5,
-        cost: 50,
+        cost: 150,
         count: 0,
-        img: "hammerchisel.png"
+        img: "chisel.png"
     },
     {
         name: "Pickaxe",
         damage: 15,
-        cost: 250,
+        cost: 400,
         count: 0,
         img: "pickaxe.png"
     },
     {
         name: "Bucket",
         damage: 25,
-        cost: 500,
+        cost: 1000,
         count: 0,
         img: "bucket.png"
     },
     {
         name: "Cart",
         damage: 40,
-        cost: 1000,
+        cost: 5000,
         count: 0,
         img: "cart.png"
-    },
-    {
-        name: "Dynamite",
-        damage: 60,
-        cost: 10000,
-        count: 0,
-        img: "dynamite.png"
     }
 ]
 
 let helpersDmg = 0
 
 let helpers = [
-    {
-        name: "Goblin",
-        damage: 50,
-        cost: 500,
-        count: 0,
-        img: "goblin.png"
-    },
     {
         name: "Human",
         damage: 75,
@@ -134,7 +120,15 @@ function drawHelper() {
 }
 
 function getWeaponTemplate(weapon) {
-    return `<button onclick="equipWeapon('${weapon.name}')">${weapon.name} ${weapon.damage} ${weapon.cost} ${weapon.count}</button>`
+    return `<div class="col-6 mb-3 card bg-light cardWidth text-center" style = "width: 18rem;" >
+        <img src="${weapon.img}" class="imgCards mx-auto" alt="'${weapon.name}'">
+            <div class="card-body">
+                <span class="card-title">'${weapon.name}'</span>
+                <p class="card-text">Damage: ${weapon.damage}</p>
+                <p class="card-text">Count: ${weapon.count}</p>
+                <a href="#" class="btn btn-primary" onclick="equipWeapon('${weapon.name}')">Buy: $${weapon.cost}</a>
+            </div>
+</div>`
 }
 
 function getStarted() {
@@ -149,7 +143,15 @@ function helperWhacksIt() {
 }
 
 function getHelperTemplate(helper) {
-    return `<button onclick="equipHelper('${helper.name}')">${helper.name} ${helper.damage} ${helper.cost} ${helper.count}</button>`
+    return `<div class="col-6 mb-3 card bg-light cardWidth text-center" style = "width: 18rem;" >
+        <img src="${helper.img}" class="imgCards mx-auto" alt="'${helper.name}'">
+            <div class="card-body">
+                <span class="card-title">'${helper.name}'</span>
+                <p class="card-text">Damage: ${helper.damage}</p>
+                <p class="card-text">Count: ${helper.count}</p>
+                <a href="#" class="btn btn-primary" onclick="equipHelper('${helper.name}')">Buy: $${helper.cost}</a>
+            </div>
+</div>`
 }
 
 function whackIt() {
@@ -178,7 +180,7 @@ function equipWeapon(weaponName) {
     money -= weapon.cost
     weapon.cost += Math.round(weapon.cost * 0.2)
     weapon.count += 1
-    player.damage += weapon.damage
+    players[0].damage += weapon.damage
     updateBoard()
 }
 

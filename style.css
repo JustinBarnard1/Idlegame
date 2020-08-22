@@ -12,7 +12,8 @@ footer{
 }
 
 .imgCards{
-    height: 15vh;
+    height: 75px;
+    width: 75px;
 }
 
 .imgMoney{
@@ -24,4 +25,9 @@ footer{
     background-size: 100%;
     background-position: bottom center;
     background-repeat: no-repeat;
+}
+
+.cardWidth{
+    width: 100%;
+    height: 100%;
 }
