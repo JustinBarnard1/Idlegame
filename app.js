@@ -1,60 +1,50 @@
 let weaponsElem = document.getElementById("weapon")
-let playerElem = document.getElementById("player")
+let playerElem = document.getElementById("thisPlayer")
 let helperElem = document.getElementById("helpers")
 let moneyElem = document.getElementById("money")
+let nameElem = document.getElementById("chooseName").value
+let mineElem = document.getElementById("mineImg")
 
 let money = 500
 
-let player =
-{
-    name: prompt("Enter Your Character Name."),
-    weapon: "fist",
-    damage: 1,
-}
+let players = []
 
 
 let weapons = [
     {
-        name: "Wooden Pick",
+        name: "Hammer And Chisel",
         damage: 5,
         cost: 50,
         count: 0,
+        img: "hammerchisel.png"
     },
     {
-        name: "Broad Pick",
+        name: "Pickaxe",
         damage: 15,
         cost: 250,
         count: 0,
+        img: "pickaxe.png"
     },
     {
-        name: "Mithril Pick",
+        name: "Bucket",
         damage: 25,
         cost: 500,
         count: 0,
+        img: "bucket.png"
     },
     {
-        name: "Adamant Pick",
+        name: "Cart",
         damage: 40,
         cost: 1000,
         count: 0,
+        img: "cart.png"
     },
     {
-        name: "Rune Pick",
+        name: "Dynamite",
         damage: 60,
         cost: 10000,
         count: 0,
-    },
-    {
-        name: "Magic Pick",
-        damage: 85,
-        cost: 100000,
-        count: 0,
-    },
-    {
-        name: "Ultimate Pick",
-        damage: 100,
-        cost: 1000000,
-        count: 0,
+        img: "dynamite.png"
     }
 ]
 
@@ -66,52 +56,64 @@ let helpers = [
         damage: 50,
         cost: 500,
         count: 0,
+        img: "goblin.png"
     },
     {
-        name: "Halfling",
+        name: "Human",
         damage: 75,
         cost: 1500,
         count: 0,
+        img: "miner1.png"
     },
     {
-        name: "Centaur",
+        name: "Orc",
         damage: 125,
         cost: 2500,
         count: 0,
+        img: "orc.png"
     },
     {
-        name: "Troll",
+        name: "Dwarf",
         damage: 200,
         cost: 10000,
         count: 0,
+        img: "dwarf.png"
     },
     {
-        name: "Minotaur",
+        name: "Were-Worm",
         damage: 250,
         cost: 15000,
         count: 0,
-    },
-    {
-        name: "Giant",
-        damage: 350,
-        cost: 25000,
-        count: 0,
-    },
-    {
-        name: "Dragon",
-        damage: 500,
-        cost: 50000,
-        count: 0,
+        img: "wereWorm.png"
     }
 ]
+
+function addPlayer(event) {
+    event.preventDefault()
+    let form = event.target
+    let player =
+    {
+        name: form.name.value,
+        weapon: "fist",
+        damage: 1,
+    }
+    players.push(player)
+    getStarted()
+}
 
 function drawMoney() {
     let template = `<span style="font-size: 28pt"><img class ="imgMoney" src="./money.png" alt="Money: "> ${money}</span>`
     moneyElem.innerHTML = template
 }
 
+function drawMine() {
+    let template = `<img class="imgMain" onclick="whackIt()" src="./coalMine.png" alt="Mine">`
+    mineElem.innerHTML = template
+}
+
 function drawPlayer() {
-    let template = `${player.name}`
+    let player = players[0].name
+    let template = player
     playerElem.innerHTML = template
 }
 
@@ -123,10 +125,6 @@ function drawWeapons() {
     weaponsElem.innerHTML = template
 }
 
-function getWeaponTemplate(weapon) {
-    return `<button onclick="equipWeapon('${weapon.name}')">${weapon.name} ${weapon.damage} ${weapon.cost} ${weapon.count}</button>`
-}
-
 function drawHelper() {
     let template = ""
     helpers.forEach(helper => {
@@ -135,7 +133,15 @@ function drawHelper() {
     helperElem.innerHTML = template
 }
 
-let helperWhackIt = setInterval(helperWhacksIt, 3000)
+function getWeaponTemplate(weapon) {
+    return `<button onclick="equipWeapon('${weapon.name}')">${weapon.name} ${weapon.damage} ${weapon.cost} ${weapon.count}</button>`
+}
+
+function getStarted() {
+    document.getElementById('welcome').remove()
+    setInterval(helperWhacksIt, 3000)
+    helperWhacksIt()
+}
 
 function helperWhacksIt() {
     money += helpersDmg
@@ -147,7 +153,7 @@ function getHelperTemplate(helper) {
 }
 
 function whackIt() {
-    money += player.damage
+    money += players[0].damage
     //console.log(money)
     updateBoard()
 }
@@ -176,20 +182,14 @@ function equipWeapon(weaponName) {
     updateBoard()
 }
 
-
-
-
-
-
-
-
-
 function updateBoard() {
     drawWeapons()
     drawPlayer()
     drawHelper()
     drawMoney()
+    drawMine()
 }
 
-helperWhacksIt()
+
+
 //updateBoard()

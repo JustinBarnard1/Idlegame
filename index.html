@@ -4,19 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idle Game</title>
+    <title>Idle Miner</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="container-fluid bg-primary text-light text-center">
-        <h3>Game</h3>
+        <h3>Idle Miner</h3>
     </header>
     <main class="background container-fluid">
+        <div id="welcome" class="row justify-content-center">
+            <div class="col-6 card p-2 text-center w-50 justify-content-center bg-dark mt-5">
+
+                <div class="mt-2">
+                    <b class="text-center text-light">Welcome!</b>
+                    <p class="text-light">Let's play Idle Miner. An Idle Click game where you can build your mining
+                        empire. </p>
+                    <p class="text-light">Choose a nickname for your character.</p>
+                    <br>
+                    <form onsubmit="addPlayer(event)" class="justify-content-center">
+                        <input type="name" class="d-flex mx-auto text-center" style="width: 200px" id="chooseName"
+                            placeholder="Your Character Name" type="text" name="name">
+                        <button type="submit" value="Submit" class="btn btn-secondary mt-3">Start
+                            Game</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 text-center">
-                <h3 style="font-size: 38pt" id="player"></h3>
+                <h3 style="font-size: 38pt" id="thisPlayer"></h3>
             </div>
         </div>
         <div class="row">
@@ -35,8 +54,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col text-center">
-                <img class="imgMain" onclick="whackIt()" src="./coalMine.png" alt="Mine">
+            <div id="mineImg" class="col text-center">
+
             </div>
         </div>
 
