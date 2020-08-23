@@ -5,7 +5,7 @@ let moneyElem = document.getElementById("money")
 let nameElem = document.getElementById("chooseName").value
 let mineElem = document.getElementById("mineImg")
 
-let money = 100000000000000000000000000
+let money = 0
 
 let players = []
 
@@ -13,29 +13,29 @@ let players = []
 let weapons = [
     {
         name: "Chisel",
-        damage: 5,
-        cost: 150,
+        damage: 3,
+        cost: 100,
         count: 0,
         img: "chisel.png"
     },
     {
         name: "Pickaxe",
-        damage: 15,
-        cost: 400,
+        damage: 10,
+        cost: 1000,
         count: 0,
         img: "pickaxe.png"
     },
     {
         name: "Bucket",
-        damage: 25,
-        cost: 1000,
+        damage: 20,
+        cost: 5000,
         count: 0,
         img: "bucket.png"
     },
     {
         name: "Cart",
-        damage: 40,
-        cost: 5000,
+        damage: 35,
+        cost: 25000,
         count: 0,
         img: "cart.png"
     }
@@ -47,28 +47,28 @@ let helpers = [
     {
         name: "Human",
         damage: 75,
-        cost: 1500,
+        cost: 3000,
         count: 0,
         img: "miner1.png"
     },
     {
         name: "Orc",
         damage: 125,
-        cost: 2500,
+        cost: 15000,
         count: 0,
         img: "orc.png"
     },
     {
         name: "Dwarf",
         damage: 200,
-        cost: 10000,
+        cost: 40000,
         count: 0,
         img: "dwarf.png"
     },
     {
         name: "Were-Worm",
         damage: 250,
-        cost: 15000,
+        cost: 80000,
         count: 0,
         img: "wereWorm.png"
     }
